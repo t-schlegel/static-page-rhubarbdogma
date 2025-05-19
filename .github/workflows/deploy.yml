@@ -31,11 +31,25 @@ jobs:
       
       - name: Setup Pages
         uses: actions/configure-pages@v4
+
+      - name: Create temporary directory for processing
+        run: |
+          mkdir -p _site
+          cp -r src/* _site/
+          
+      - name: Add base tag to HTML files
+        run: |
+          REPO_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
+          for file in _site/*.html _site/**/*.html; do
+            if [ -f "$file" ]; then
+              sed -i "s/<head>/<head><base href=\"\/$REPO_NAME\/\" >/g" "$file"
+            fi
+          done
         
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './src'
+          path: './_site'
           
       - name: Deploy to GitHub Pages
         id: deployment
