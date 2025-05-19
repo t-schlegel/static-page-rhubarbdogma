@@ -53,10 +53,6 @@ function createHighlight(area) {
     area.polygonEl = polygon;
 }
 
-function redirectToMainMap() {
-    window.location.href = 'cluton_map.html'; // This is level1, the main Cluton Map
-}
-
 function initializeHighlights(container) {
     const areas = container.querySelectorAll('area');
     areas.forEach(area => {
