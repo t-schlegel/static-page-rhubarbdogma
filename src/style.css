@@ -63,7 +63,7 @@ button.reset-button:hover {
 }
 .text-container {
     position: absolute;
-    bottom: 2rem;
+    bottom: 8rem;
     left: 50%;
     transform: translateX(-50%);
     max-width: 800px;
