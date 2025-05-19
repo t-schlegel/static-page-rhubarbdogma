@@ -5,6 +5,7 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
+    position: relative;
 }
 .header-link {
     font-family: "Times New Roman", serif;
@@ -59,4 +60,16 @@ button.reset-button {
 }
 button.reset-button:hover {
     background-color: #45a049;
+}
+.text-container {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 800px;
+    width: 90%;
+    padding: 0 1rem;
+    text-align: center;
+    font-family: "Times New Roman", serif;
+    line-height: 1.6;
 } 
