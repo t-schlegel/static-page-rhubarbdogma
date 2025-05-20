@@ -7,50 +7,93 @@ function createPolygonPath(coords) {
     return path.trim();
 }
 
+function getPointsFromCoords(coords) {
+    const points = coords.split(',').map(Number);
+    const result = [];
+    for (let i = 0; i < points.length; i += 2) {
+        result.push({ x: points[i], y: points[i + 1] });
+    }
+    return result;
+}
+
+function createSparkle(container, x, y) {
+    const sparkle = document.createElement('div');
+    sparkle.className = 'sparkle';
+    
+    // Add offset to position sparkles outside the border (adjust these values as needed)
+    const angle = Math.random() * Math.PI * 2;
+    const distance = 10; // Distance from the border in pixels
+    const offsetX = Math.cos(angle) * distance;
+    const offsetY = Math.sin(angle) * distance;
+    
+    sparkle.style.left = `${x + offsetX}px`;
+    sparkle.style.top = `${y + offsetY}px`;
+    sparkle.style.animation = `sparkle ${1.5 + Math.random()}s ease-in-out infinite`;
+    sparkle.style.animationDelay = `${Math.random() * 3}s`;
+    container.appendChild(sparkle);
+    return sparkle;
+}
+
 function createHighlight(area) {
     const container = area.closest('.image-container');
     if (!container) {
         console.error('Could not find .image-container for area', area);
         return;
     }
-    const img = container.querySelector('img');
-    if (!img) {
-        console.error('Could not find img in .image-container for area', area);
-        return;
+
+    let sparkleContainer = container.querySelector('.sparkle-container');
+    if (!sparkleContainer) {
+        sparkleContainer = document.createElement('div');
+        sparkleContainer.className = 'sparkle-container';
+        container.appendChild(sparkleContainer);
     }
 
-    let highlightContainer = container.querySelector('.highlight-container');
-    if (!highlightContainer) {
-        highlightContainer = document.createElement('div');
-        highlightContainer.className = 'highlight-container';
-        container.appendChild(highlightContainer);
-    }
-
-    const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    svg.style.position = 'absolute';
-    svg.style.top = '0';
-    svg.style.left = '0';
-    svg.style.width = '100%';
-    svg.style.height = '100%';
+    // Store the container reference on the area element
+    area.sparkleContainer = sparkleContainer;
+    area.sparkles = []; // Array to store sparkle elements
     
-    // Wait for image to load to get naturalWidth/Height if not already loaded
-    if (img.naturalWidth === 0 || img.naturalHeight === 0) {
-        img.onload = () => {
-            svg.setAttribute('viewBox', `0 0 ${img.naturalWidth} ${img.naturalHeight}`);
-        };
-    } else {
-        svg.setAttribute('viewBox', `0 0 ${img.naturalWidth} ${img.naturalHeight}`);
+    // Create initial sparkles
+    animateSparklesAlongPath(area);
+}
+
+function animateSparklesAlongPath(area) {
+    if (!area.sparkleContainer) return;
+    
+    // Clear existing sparkles
+    area.sparkles.forEach(sparkle => sparkle.remove());
+    area.sparkles = [];
+
+    const points = getPointsFromCoords(area.coords);
+    const numSparkles = Math.floor(points.length * 0.25); // Reduced density from 0.5 to 0.25
+
+    // Create sparkles along the path
+    for (let i = 0; i < numSparkles; i++) {
+        // Get two random adjacent points
+        const idx = Math.floor(Math.random() * (points.length - 1));
+        const p1 = points[idx];
+        const p2 = points[idx + 1];
+
+        // Interpolate between points
+        const t = Math.random();
+        const x = p1.x + (p2.x - p1.x) * t;
+        const y = p1.y + (p2.y - p1.y) * t;
+
+        // Create sparkle at interpolated position
+        const sparkle = createSparkle(area.sparkleContainer, x, y);
+        area.sparkles.push(sparkle);
     }
-    svg.style.pointerEvents = 'none';
+}
 
-    const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-    polygon.setAttribute('points', createPolygonPath(area.coords));
-    polygon.setAttribute('fill', 'none');
+function hideSparkles(area) {
+    if (area.sparkleContainer) {
+        area.sparkleContainer.classList.add('hidden');
+    }
+}
 
-    svg.appendChild(polygon);
-    highlightContainer.appendChild(svg);
-
-    area.polygonEl = polygon;
+function showSparkles(area) {
+    if (area.sparkleContainer) {
+        area.sparkleContainer.classList.remove('hidden');
+    }
 }
 
 function initializeHighlights(container) {
@@ -59,39 +102,19 @@ function initializeHighlights(container) {
         createHighlight(area);
 
         area.addEventListener('mouseenter', () => {
-            if (area.polygonEl) {
-                area.polygonEl.setAttribute('stroke', 'rgba(105, 105, 105, 0.5)');
-                area.polygonEl.setAttribute('stroke-width', '2');
-                area.polygonEl.style.filter = 'drop-shadow(0 0 20px dimgrey)';
-            }
+            hideSparkles(area);
         });
 
         area.addEventListener('mouseleave', () => {
-            if (area.polygonEl) {
-                area.polygonEl.removeAttribute('stroke');
-                area.polygonEl.removeAttribute('stroke-width');
-                area.polygonEl.style.filter = 'none';
-            }
+            showSparkles(area);
         });
     });
 }
 
 window.addEventListener('load', () => {
-    const currentMapDiv = document.querySelector('.image-map'); 
+    const currentMapDiv = document.querySelector('.image-map');
     if (currentMapDiv) {
-        // Ensure image is loaded before initializing highlights, especially for viewBox calculation
-        const img = currentMapDiv.querySelector('img');
-        if (img) {
-            if (img.complete) {
-                 initializeHighlights(currentMapDiv);
-            } else {
-                img.addEventListener('load', () => {
-                    initializeHighlights(currentMapDiv);
-                });
-            }
-        } else {
-            console.error("No img element found in .image-map for highlight initialization.");
-        }
+        initializeHighlights(currentMapDiv);
     } else {
         console.error("No element with class '.image-map' found on this page.");
     }
