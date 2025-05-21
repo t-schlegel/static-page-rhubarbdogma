@@ -2,6 +2,13 @@
 module.exports = {
   content: ['./**/*.html', './script.js'],
   theme: {
+    screens: {
+      'sm': '480px',
+      'md': '768px',
+      'lg': '1024px',
+      'xl': '1280px',
+      '2xl': '1536px',
+    },
     extend: {
       fontFamily: {
         serif: ['"Times New Roman"', 'Times', 'serif']
@@ -44,6 +51,7 @@ module.exports = {
         },
       },
       scale: {
+        '120': '1.2',
         '130': '1.3'
       }
     },
