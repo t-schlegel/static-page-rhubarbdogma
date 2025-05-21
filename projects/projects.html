@@ -3,24 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects</title>
-    <link rel="stylesheet" href="projects.css">
+    <title>rhubarb dogma</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Times New Roman, serif;
+        }
+        
+        body {
+            background-color: white;
+            color: black;
+            padding: 20px;
+        }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .name {
+            font-size: 1.5rem;
+            font-weight: normal;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            max-width: 100%;
+        }
+        
+        .project-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .project-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            aspect-ratio: 1/1;
+            cursor: pointer;
+            background-color: transparent;
+        }
+        
+        .caption {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .project-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
-        <h1>Projects</h1>
+        <h1 class="name">rhubarb dogma</h1>
+        </div>
     </header>
+    
     <main>
-        <section class="gallery">
-            <a href="project/fruit_salad.html" class="gallery-item"><img src="http://127.0.0.1:49226/images/fruit%20salad/cover%20color.png" alt="Fruit Salad"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 2"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 3"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 4"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 5"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 6"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 7"></a>
-            <a href="#" class="gallery-item"><img src="https://via.placeholder.com/200" alt="Project 8"></a>
-        </section>
+        <div class="project-grid">
+            <div class="project-item">
+                <a href="fruit_salad.html">
+                    <img src="./images/fruit_salad_cover.png" alt="Fruit Salad project thumbnail">
+                </a>
+                <div class="caption">Fruit Salad, 2024</div>
+            </div>
+            
+            <div class="project-item">
+                <a href="#">
+                    <img src="https://via.placeholder.com/400" alt="Project 2 thumbnail">
+                </a>
+                <div class="caption">Project 2, 2024</div>
+            </div>
+            
+            <div class="project-item">
+                <a href="#">
+                    <img src="https://via.placeholder.com/400" alt="Project 3 thumbnail">
+                </a>
+                <div class="caption">Project 3, 2024</div>
+            </div>
+        </div>
     </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const projectItems = document.querySelectorAll('.project-item');
+            
+            projectItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const link = this.querySelector('a');
+                    if (link) {
+                        window.location.href = link.getAttribute('href');
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
