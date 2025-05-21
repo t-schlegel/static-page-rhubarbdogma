@@ -39,7 +39,7 @@
 
 @layer base {
   body {
-    @apply flex flex-col items-center min-h-screen m-0 p-0 relative;
+    @apply flex flex-col items-center min-h-screen relative;
     /* Top padding only for the header */
     @apply justify-start pt-6 md:pt-8;
   }
