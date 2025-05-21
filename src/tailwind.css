@@ -40,8 +40,8 @@
 @layer base {
   body {
     @apply flex flex-col items-center min-h-screen m-0 p-0 relative;
-    /* Optimized top padding to accommodate the header with less wasted space */
-    @apply justify-start pt-14 md:pt-16 lg:pt-20;
+    /* Top padding only for the header */
+    @apply justify-start pt-6 md:pt-8;
   }
 
   img {
@@ -114,8 +114,10 @@
   
   .image-map {
     @apply block w-full text-center overflow-visible;
-    /* Reduced top margin, maintained bottom margin */
-    @apply mt-1 sm:mt-2 md:mt-3 mb-8 sm:mb-10 md:mb-12 lg:mb-16;
+    /* Position image at a fixed position from the top */
+    @apply mb-8 sm:mb-10 md:mb-12 lg:mb-16;
+    /* Fixed top position ensures consistent image placement */
+    @apply mt-[160px] sm:mt-[180px] md:mt-[200px] lg:mt-[220px];
   }
   
   button.reset-button {
@@ -135,20 +137,24 @@
   }
   
   .title-container {
-    @apply relative w-full text-center;
-    /* Reduced vertical spacing */
-    @apply mt-4 mb-2 sm:mt-6 sm:mb-3 md:mt-8 md:mb-4;
+    @apply w-full text-center absolute top-0 left-0 right-0;
+    /* Push title down from the top navbar */
+    @apply pt-4 sm:pt-6 md:pt-8 lg:pt-10;
   }
   
   .page-title {
     @apply font-serif mx-0;
-    /* Responsive title sizing with reduced bottom margin */
-    @apply text-4xl mt-2 mb-0 sm:text-5xl sm:mt-3 sm:mb-0 md:text-6xl md:mt-4 md:mb-0 lg:text-7xl lg:mt-6 lg:mb-0;
+    /* Responsive title sizing with appropriate spacing */
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    /* Add spacing below the title */
+    @apply mb-4 sm:mb-6 md:mb-8 lg:mb-10;
   }
 }
 
 /* Additional responsive adjustments */
 @layer utilities {
+  /* Remove the no-title-spacer - we won't need it with our new approach */
+  
   /* Container adjustments for better spacing */
   .container-fluid {
     @apply w-full px-4 mx-auto;

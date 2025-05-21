@@ -562,20 +562,14 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 0px;
-  /* Optimized top padding to accommodate the header with less wasted space */
+  /* Top padding only for the header */
   justify-content: flex-start;
-  padding-top: 3.5rem;
+  padding-top: 1.5rem;
 }
 
 @media (min-width: 768px) {
   body {
-    padding-top: 4rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  body {
-    padding-top: 5rem;
+    padding-top: 2rem;
   }
 }
 
@@ -794,21 +788,18 @@ img {
   width: 100%;
   overflow: visible;
   text-align: center;
-  /* Reduced top margin, maintained bottom margin */
-  margin-top: 0.25rem;
+  /* Position image at a fixed position from the top */
   margin-bottom: 2rem;
 }
 
 @media (min-width: 480px) {
   .image-map {
-    margin-top: 0.5rem;
     margin-bottom: 2.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .image-map {
-    margin-top: 0.75rem;
     margin-bottom: 3rem;
   }
 }
@@ -816,6 +807,29 @@ img {
 @media (min-width: 1024px) {
   .image-map {
     margin-bottom: 4rem;
+  }
+}
+
+.image-map {
+  /* Fixed top position ensures consistent image placement */
+  margin-top: 160px;
+}
+
+@media (min-width: 480px) {
+  .image-map {
+    margin-top: 180px;
+  }
+}
+
+@media (min-width: 768px) {
+  .image-map {
+    margin-top: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image-map {
+    margin-top: 220px;
   }
 }
 
@@ -881,25 +895,31 @@ img {
 }
 
 .title-container {
-  position: relative;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
   width: 100%;
   text-align: center;
-  /* Reduced vertical spacing */
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  /* Push title down from the top navbar */
+  padding-top: 1rem;
 }
 
 @media (min-width: 480px) {
   .title-container {
-    margin-top: 1.5rem;
-    margin-bottom: 0.75rem;
+    padding-top: 1.5rem;
   }
 }
 
 @media (min-width: 768px) {
   .title-container {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
+    padding-top: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .title-container {
+    padding-top: 2.5rem;
   }
 }
 
@@ -907,17 +927,13 @@ img {
   margin-left: 0px;
   margin-right: 0px;
   font-family: "Times New Roman", Times, serif;
-  /* Responsive title sizing with reduced bottom margin */
-  margin-top: 0.5rem;
-  margin-bottom: 0px;
+  /* Responsive title sizing with appropriate spacing */
   font-size: 2.25rem;
   line-height: 2.5rem;
 }
 
 @media (min-width: 480px) {
   .page-title {
-    margin-top: 0.75rem;
-    margin-bottom: 0px;
     font-size: 3rem;
     line-height: 1;
   }
@@ -925,8 +941,6 @@ img {
 
 @media (min-width: 768px) {
   .page-title {
-    margin-top: 1rem;
-    margin-bottom: 0px;
     font-size: 3.75rem;
     line-height: 1;
   }
@@ -934,11 +948,36 @@ img {
 
 @media (min-width: 1024px) {
   .page-title {
-    margin-top: 1.5rem;
-    margin-bottom: 0px;
     font-size: 4.5rem;
     line-height: 1;
   }
+}
+
+.page-title {
+  /* Add spacing below the title */
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 480px) {
+  .page-title {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-title {
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-title {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.fixed {
+  position: fixed;
 }
 
 .hidden {
@@ -956,6 +995,8 @@ img {
 .ease-in-out {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+
+/* Remove the no-title-spacer - we won't need it with our new approach */
 
 /* Container adjustments for better spacing */
 
