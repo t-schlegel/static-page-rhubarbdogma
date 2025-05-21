@@ -116,8 +116,8 @@
     @apply block w-full text-center overflow-visible;
     /* Position image at a fixed position from the top */
     @apply mb-8 sm:mb-10 md:mb-12 lg:mb-16;
-    /* Fixed top position ensures consistent image placement */
-    @apply mt-[160px] sm:mt-[180px] md:mt-[200px] lg:mt-[220px];
+    /* Adjusted fixed top position with more space for title area */
+    @apply mt-[180px] sm:mt-[200px] md:mt-[220px] lg:mt-[240px];
   }
   
   button.reset-button {
@@ -138,14 +138,14 @@
   
   .title-container {
     @apply w-full text-center absolute top-0 left-0 right-0;
-    /* Push title down from the top navbar */
-    @apply pt-4 sm:pt-6 md:pt-8 lg:pt-10;
+    /* Increased padding above the title */
+    @apply pt-12 sm:pt-16 md:pt-20 lg:pt-24;
   }
   
   .page-title {
     @apply font-serif mx-0;
-    /* Responsive title sizing with appropriate spacing */
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl;
+    /* Increased font size across all breakpoints */
+    @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl;
     /* Add spacing below the title */
     @apply mb-4 sm:mb-6 md:mb-8 lg:mb-10;
   }

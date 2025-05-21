@@ -811,25 +811,25 @@ img {
 }
 
 .image-map {
-  /* Fixed top position ensures consistent image placement */
-  margin-top: 160px;
+  /* Adjusted fixed top position with more space for title area */
+  margin-top: 180px;
 }
 
 @media (min-width: 480px) {
-  .image-map {
-    margin-top: 180px;
-  }
-}
-
-@media (min-width: 768px) {
   .image-map {
     margin-top: 200px;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .image-map {
     margin-top: 220px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .image-map {
+    margin-top: 240px;
   }
 }
 
@@ -901,25 +901,25 @@ img {
   right: 0px;
   width: 100%;
   text-align: center;
-  /* Push title down from the top navbar */
-  padding-top: 1rem;
+  /* Increased padding above the title */
+  padding-top: 3rem;
 }
 
 @media (min-width: 480px) {
   .title-container {
-    padding-top: 1.5rem;
+    padding-top: 4rem;
   }
 }
 
 @media (min-width: 768px) {
   .title-container {
-    padding-top: 2rem;
+    padding-top: 5rem;
   }
 }
 
 @media (min-width: 1024px) {
   .title-container {
-    padding-top: 2.5rem;
+    padding-top: 6rem;
   }
 }
 
@@ -927,28 +927,28 @@ img {
   margin-left: 0px;
   margin-right: 0px;
   font-family: "Times New Roman", Times, serif;
-  /* Responsive title sizing with appropriate spacing */
-  font-size: 2.25rem;
-  line-height: 2.5rem;
+  /* Increased font size across all breakpoints */
+  font-size: 3rem;
+  line-height: 1;
 }
 
 @media (min-width: 480px) {
-  .page-title {
-    font-size: 3rem;
-    line-height: 1;
-  }
-}
-
-@media (min-width: 768px) {
   .page-title {
     font-size: 3.75rem;
     line-height: 1;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .page-title {
     font-size: 4.5rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-title {
+    font-size: 6rem;
     line-height: 1;
   }
 }
