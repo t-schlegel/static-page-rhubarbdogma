@@ -1,5 +1,6 @@
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
@@ -24,8 +25,10 @@ body {
 }
 .image-container {
     position: relative;
+    display: inline-block;
     transform: scale(1.3);
     transform-origin: center center;
+    margin-bottom: 2rem; /* Ensure space below image */
 }
 img {
     display: block;
@@ -139,7 +142,11 @@ img {
 }
 
 .image-map {
-    margin-bottom: 20px;
+    display: block;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 4rem; /* Additional spacing to account for transform scale */
+    overflow: visible; /* Allow scaled content to overflow */
 }
 /* .hidden class might not be needed anymore if each map is on its own page */
 /* .hidden {
@@ -162,16 +169,16 @@ button.reset-button:hover {
     background-color: #45a049;
 }
 .text-container {
-    position: absolute;
-    bottom: 11rem;
-    left: 50%;
-    transform: translateX(-50%);
+    position: static;
+    display: block;
+    margin: 0 auto; /* Remove top margin since we're adding it to the image container */
     max-width: 800px;
     width: 90%;
     padding: 0 1rem;
     text-align: center;
     font-family: "Times New Roman", serif;
     line-height: 1.6;
+    z-index: 1; /* Ensure text appears above any transformed elements */
 } 
 
 .title-container {
