@@ -40,8 +40,8 @@
 @layer base {
   body {
     @apply flex flex-col items-center min-h-screen m-0 p-0 relative;
-    /* Change from justify-center to ensure content doesn't overlap with navbar */
-    @apply justify-start pt-20 md:pt-28 lg:pt-36;
+    /* Optimized top padding to accommodate the header with less wasted space */
+    @apply justify-start pt-14 md:pt-16 lg:pt-20;
   }
 
   img {
@@ -114,8 +114,8 @@
   
   .image-map {
     @apply block w-full text-center overflow-visible;
-    /* Responsive spacing */
-    @apply mb-8 sm:mb-10 md:mb-12 lg:mb-16;
+    /* Reduced top margin, maintained bottom margin */
+    @apply mt-1 sm:mt-2 md:mt-3 mb-8 sm:mb-10 md:mb-12 lg:mb-16;
   }
   
   button.reset-button {
@@ -136,14 +136,14 @@
   
   .title-container {
     @apply relative w-full text-center;
-    /* Add space above title */
-    @apply mt-4 mb-8 sm:mt-6 sm:mb-10 md:mt-8 md:mb-12;
+    /* Reduced vertical spacing */
+    @apply mt-4 mb-2 sm:mt-6 sm:mb-3 md:mt-8 md:mb-4;
   }
   
   .page-title {
     @apply font-serif mx-0;
-    /* Responsive title sizing */
-    @apply text-4xl my-6 sm:text-5xl sm:my-8 md:text-6xl md:my-10 lg:text-7xl lg:my-[85px];
+    /* Responsive title sizing with reduced bottom margin */
+    @apply text-4xl mt-2 mb-0 sm:text-5xl sm:mt-3 sm:mb-0 md:text-6xl md:mt-4 md:mb-0 lg:text-7xl lg:mt-6 lg:mb-0;
   }
 }
 
