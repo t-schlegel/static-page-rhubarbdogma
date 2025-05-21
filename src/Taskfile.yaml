@@ -1,0 +1,23 @@
+version: "3"
+
+tasks:
+  build:
+    desc: Build the minified CSS with Tailwind CLI
+    cmds:
+      - npm run build:css
+
+  serve:
+    desc: Start a Python HTTP server on port 8000
+    deps: [build]
+    cmds:
+      - echo "Starting server at http://localhost:8000"
+      - python3 -m http.server 8000
+
+  watch:
+    desc: Build CSS and watch for changes
+    cmds:
+      - npm run watch:css
+
+  default:
+    desc: Build CSS and serve the site
+    deps: [serve]
