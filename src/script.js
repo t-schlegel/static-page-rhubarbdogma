@@ -86,13 +86,19 @@ function animateSparklesAlongPath(area) {
 
 function hideSparkles(area) {
     if (area.sparkleContainer) {
-        area.sparkleContainer.classList.add('hidden');
+        // Instead of hiding, make all sparkles golden
+        area.sparkles.forEach(sparkle => {
+            sparkle.classList.add('golden');
+        });
     }
 }
 
 function showSparkles(area) {
     if (area.sparkleContainer) {
-        area.sparkleContainer.classList.remove('hidden');
+        // Remove golden class instead of showing
+        area.sparkles.forEach(sparkle => {
+            sparkle.classList.remove('golden');
+        });
     }
 }
 

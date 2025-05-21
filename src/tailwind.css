@@ -27,6 +27,20 @@
   }
 }
 
+@keyframes twinkle-golden {
+  0%, 100% { 
+    opacity: 0.2;
+    transform: rotate(0deg) scale(0.8); 
+    filter: drop-shadow(0 0 2px rgba(255, 215, 0, 0.4));
+  }
+  50% { 
+    opacity: 1;
+    transform: rotate(180deg) scale(1.1); 
+    filter: drop-shadow(0 0 4px rgba(255, 215, 0, 0.6))
+            drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+  }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0) scale(1); opacity: 0.5; }
   50% { transform: translateY(-10px) scale(1.1); opacity: 1; }
@@ -82,12 +96,23 @@
     animation: twinkle 2s ease-in-out infinite;
   }
   
+  .sparkle.golden {
+    animation: twinkle-golden 2s ease-in-out infinite;
+  }
+  
   .sparkle::before,
   .sparkle::after {
     content: '';
     @apply absolute bg-[rgba(190,190,190,0.95)] left-1/2 top-1/2 w-[1.5px] h-2 rounded-sm;
     filter: drop-shadow(0 0 3px rgba(40, 40, 40, 0.4))
             drop-shadow(0 0 6px rgba(170, 170, 170, 0.6));
+  }
+  
+  .sparkle.golden::before,
+  .sparkle.golden::after {
+    @apply bg-[rgba(255,215,0,0.95)];
+    filter: drop-shadow(0 0 3px rgba(255, 215, 0, 0.4))
+            drop-shadow(0 0 6px rgba(255, 215, 0, 0.6));
   }
   
   .sparkle::before {
@@ -98,6 +123,15 @@
       4px 4px 0 -2px rgba(150, 150, 150, 0.7),
       -4px 4px 0 -2px rgba(150, 150, 150, 0.7),
       4px -4px 0 -2px rgba(150, 150, 150, 0.7);
+  }
+  
+  .sparkle.golden::before {
+    box-shadow: 
+      0 0 0 0.8px rgba(255, 215, 0, 0.95),
+      -4px -4px 0 -2px rgba(255, 215, 0, 0.7),
+      4px 4px 0 -2px rgba(255, 215, 0, 0.7),
+      -4px 4px 0 -2px rgba(255, 215, 0, 0.7),
+      4px -4px 0 -2px rgba(255, 215, 0, 0.7);
   }
   
   .sparkle::after {
