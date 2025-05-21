@@ -4,47 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sepine</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 0;
-        }
-        .header-link {
-            font-family: "Times New Roman", serif;
-            font-size: 1.5rem;
-            text-decoration: none;
-            color: inherit;
-        }
-        .header-link:hover {
-            text-decoration: underline;
-        }
-        .header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            margin: 1rem;
-        }
-        .image-container {
-            position: relative;
-            transform: scale(1.3);
-            transform-origin: center center;
-        }
-        img {
-            display: block;
-        }
-        .highlight-container {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header class="header">
@@ -59,71 +19,6 @@
         </map>
     </div>
 
-    <script>
-        function createPolygonPath(coords) {
-            const points = coords.split(',').map(Number);
-            let path = '';
-            for (let i = 0; i < points.length; i += 2) {
-                path += `${points[i]},${points[i + 1]} `;
-            }
-            return path.trim();
-        }
-
-        function createHighlight(area) {
-            const container = document.querySelector('.image-container');
-            const img = container.querySelector('img');
-
-            // Create a container for all SVG highlights if it doesn't exist
-            let highlightContainer = container.querySelector('.highlight-container');
-            if (!highlightContainer) {
-                highlightContainer = document.createElement('div');
-                highlightContainer.className = 'highlight-container';
-                container.appendChild(highlightContainer);
-            }
-
-            const svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-            svg.style.position = 'absolute';
-            svg.style.top = '0';
-            svg.style.left = '0';
-            svg.style.width = '100%';
-            svg.style.height = '100%';
-            svg.setAttribute('viewBox', `0 0 ${img.naturalWidth} ${img.naturalHeight}`);
-            svg.style.pointerEvents = 'none';
-
-            const polygon = document.createElementNS('http://www.w3.org/2000/svg', 'polygon');
-            polygon.setAttribute('points', createPolygonPath(area.coords));
-            polygon.setAttribute('fill', 'none');
-
-            svg.appendChild(polygon);
-            highlightContainer.appendChild(svg);
-
-            // Associate polygon with its area element
-            area.polygonEl = polygon;
-        }
-
-        // Wait for the image to load before creating highlights and adding event listeners
-        window.addEventListener('load', () => {
-            const areas = document.querySelectorAll('area');
-            areas.forEach(area => {
-                createHighlight(area); // Creates the polygon structure, now initially invisible
-
-                area.addEventListener('mouseenter', () => {
-                    if (area.polygonEl) {
-                        area.polygonEl.setAttribute('stroke', 'rgba(105, 105, 105, 0.5)');
-                        area.polygonEl.setAttribute('stroke-width', '2');
-                        area.polygonEl.style.filter = 'drop-shadow(0 0 20px dimgrey)';
-                    }
-                });
-
-                area.addEventListener('mouseleave', () => {
-                    if (area.polygonEl) {
-                        area.polygonEl.removeAttribute('stroke');
-                        area.polygonEl.removeAttribute('stroke-width');
-                        area.polygonEl.style.filter = 'none';
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
