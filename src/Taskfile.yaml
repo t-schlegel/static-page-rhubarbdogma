@@ -1,23 +1,34 @@
 version: "3"
 
 tasks:
-  build:
-    desc: Build the minified CSS with Tailwind CLI
+  buildOnWindows:
     cmds:
-      - npm run build:css
+      - ../tailwindcss.exe -i "tailwind.css" -o "app.css" --minify
+
+  serveOnWindows:
+    deps: [buildOnWindows]
+    cmds:
+      - echo "Starting server at http://localhost:8000"
+      - python3 -m http.server 8000
+
+  build:
+    cmds:
+      - tailwindcss -i "tailwind.css" -o "app.css" --minify
 
   serve:
-    desc: Start a Python HTTP server on port 8000
     deps: [build]
     cmds:
       - echo "Starting server at http://localhost:8000"
       - python3 -m http.server 8000
 
-  watch:
-    desc: Build CSS and watch for changes
+  windows:
+    desc: (for windows) build and run the site locally
+
+    deps:
+      - buildOnWindows
     cmds:
-      - npm run watch:css
+      - task: serveOnWindows
 
   default:
-    desc: Build CSS and serve the site
+    desc: (for linux/macos) build and run the site locally
     deps: [serve]
