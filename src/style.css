@@ -927,28 +927,28 @@ img {
   margin-left: 0px;
   margin-right: 0px;
   font-family: "Times New Roman", Times, serif;
-  /* Increased font size across all breakpoints */
-  font-size: 3rem;
+  /* Further increased font size across all breakpoints */
+  font-size: 3.75rem;
   line-height: 1;
 }
 
 @media (min-width: 480px) {
-  .page-title {
-    font-size: 3.75rem;
-    line-height: 1;
-  }
-}
-
-@media (min-width: 768px) {
   .page-title {
     font-size: 4.5rem;
     line-height: 1;
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .page-title {
     font-size: 6rem;
+    line-height: 1;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-title {
+    font-size: 8rem;
     line-height: 1;
   }
 }

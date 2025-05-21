@@ -144,8 +144,8 @@
   
   .page-title {
     @apply font-serif mx-0;
-    /* Increased font size across all breakpoints */
-    @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl;
+    /* Further increased font size across all breakpoints */
+    @apply text-6xl sm:text-7xl md:text-8xl lg:text-9xl;
     /* Add spacing below the title */
     @apply mb-4 sm:mb-6 md:mb-8 lg:mb-10;
   }
