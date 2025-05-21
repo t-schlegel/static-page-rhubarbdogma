@@ -3,7 +3,7 @@ version: "3"
 tasks:
   buildOnWindows:
     cmds:
-      - ../tailwindcss.exe -i "tailwind.css" -o "app.css" --minify
+      - ../tailwindcss.exe -i "tailwind.css" -o "style.css" --minify
 
   serveOnWindows:
     deps: [buildOnWindows]
@@ -13,7 +13,7 @@ tasks:
 
   build:
     cmds:
-      - tailwindcss -i "tailwind.css" -o "app.css" --minify
+      - tailwindcss -i "tailwind.css" -o "style.css" --minify
 
   serve:
     deps: [build]
