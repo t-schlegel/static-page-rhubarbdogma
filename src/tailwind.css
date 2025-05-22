@@ -151,7 +151,7 @@
     /* Position image at a fixed position from the top */
     @apply mb-8 sm:mb-10 md:mb-12 lg:mb-16;
     /* Adjusted fixed top position with more space for title area */
-    @apply mt-[180px] sm:mt-[200px] md:mt-[220px] lg:mt-[240px];
+    @apply mt-[180px] sm:mt-[215px] md:mt-[235px] lg:mt-[255px];
   }
   
   button.reset-button {
