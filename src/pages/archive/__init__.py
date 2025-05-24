@@ -1,0 +1,1 @@
+# Make pages/archive a package

@@ -1,0 +1,27 @@
+from fasthtml.common import *
+
+image_map = """<map name="image-map">
+<area target="_self" alt="Caves" title="Caves" href="/ytc/sepine/sepine_caves" coords="653,162,660,140,676,125,690,109,702,101,719,100,734,104,747,110,757,124,765,147,772,164,768,180,761,198,758,218,763,240,771,256,774,283,778,312,774,328,762,314,759,300,764,288,766,279,764,270,755,258,742,239,737,224,740,216,743,202,737,194,740,185,735,177,729,171,715,181,705,184,694,183,680,173,687,174,670,173" shape="poly">
+<area target="_self" alt="Fungi Forest Opt 2" title="Fungi Forest Opt 2" href="/ytc/sepine/sepine_forest" coords="232,173,226,134,216,150,203,150,186,147,184,132,187,119,178,121,162,102,170,119,151,114,154,121,129,133,108,163,133,143,121,167,118,185,124,177,120,199,130,214,138,199,142,191,149,201,158,206,152,189,161,192,157,181,164,185,164,178,173,182,177,172,182,179,180,194,174,202,184,202,195,207,189,214,181,229,171,233,181,237,163,245,187,242,190,248,177,250,162,257,153,265,165,264,153,275,143,287,160,282,157,297,169,298,172,305,193,289,180,274,185,260,198,245,211,245,211,219,217,207,228,197,222,190,229,183" shape="poly">
+<area target="_self" alt="Shoreline" title="Shoreline" href="/ytc/sepine/sepine_shoreline" coords="456,240,408,216,362,234,360,240,380,252,390,266,395,269,439,260,470,253,509,257,489,238,481,237" shape="poly">
+</map>"""
+
+@flexicache()
+def sepine():
+  return (
+    Head(
+      Meta(name='viewport', charset='UTF-8', content='width=device-width, initial-scale=1.0'),
+      Title("Sepine"),
+    ),
+    Body(
+      Header(
+        A('rhubarb dogma', cls='font-times text-xl hover:underline', href="/"),
+        cls='absolute top-0 left-0 m-4',
+      ),
+      Div(
+        Img(src='/ytc/sepine/sepine-parent.jpg', usemap='#image-map', cls='scale-[125%]'),
+        NotStr(image_map),
+      ),
+      cls="flex justify-center items-center min-h-screen",
+    ),
+  )

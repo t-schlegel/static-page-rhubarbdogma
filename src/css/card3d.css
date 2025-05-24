@@ -1,0 +1,15 @@
+me {
+    position: relative; width: var(--tpl-width); height: var(--tpl-height); padding: 1em; display: flex;
+    flex-direction: column; justify-content: flex-end;
+    font-weight: bold; text-align: var(--tpl-align); text-shadow: 0 0 4px #000; color: #ddd;
+    /* border-radius: 10px; background: var(--tpl-background) center/cover;*/ /* this border radius causes rounded coards */
+    background: var(--tpl-background) center/cover;
+    transition: .3s ease-out; transition-property: transform, touch-action: none; /* Prevents scrolling on touch devices */
+}
+/*me:hover { transition-duration: .15s; box-shadow: 0 5px 20px 5px #00000044; }*/
+me > div {
+    position: absolute; inset: 0; /*border-radius: 10px;*/
+    /* background-image: radial-gradient(circle at 90% -20%, #ffffff55, #0000000f); */
+    pointer-events: none; /* Allows touch events to pass through */
+    /* padding-bottom: 1.5em; */
+}
