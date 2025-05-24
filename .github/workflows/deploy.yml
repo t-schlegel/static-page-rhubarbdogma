@@ -38,7 +38,7 @@ jobs:
           cp -r static/* _site/
           REPO_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
           find _site -type f -name "*.html" -exec sed -i "s|href=\"/|href=\"/$REPO_NAME/|g" {} +
-          find _site -type f -name "*.html" -exec sed -i "s|static=\"/|static=\"/$REPO_NAME/|g" {} +
+          find _site -type f -name "*.html" -exec sed -i "s|src=\"/|src=\"/$REPO_NAME/|g" {} +
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
