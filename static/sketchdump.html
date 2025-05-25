@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rhubarb dogma</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/scrollbar.css">
+    <link rel="stylesheet" href="css/modal.css">
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+    <header class="absolute top-0 left-0 m-4">
+        <a href="/" class="font-times text-xl hover:underline">rhubarb dogma</a>
+    </header>
+    
+    <div class="py-13"></div>
+    <div class="py-16"></div>
+    
+    <span class="font-times block text-4xl md:text-9xl mb-8 center-text flex items-center justify-center">Sketch Dump</span>
+    
+    <div class="gallery max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-4">
+            <img src="/sketchdump/10-1.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/10-3.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/dicefinal.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/doodles.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/img442.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/img791.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/misc_sketches_2.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/paper_puppets.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/wizards_final.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+            </div>
+            <div class="flex flex-col gap-4">
+            <img src="/sketchdump/10-2.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/2-28-25.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/dog_w_bear.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/fly_fishing_bnw.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/img784.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/img9492.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/page1sketch.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">\n            <img src="/sketchdump/wizards.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal for image viewing -->
+    <div id="imageModal" class="modal hidden">
+        <div class="modal-content">
+            <button id="prev" class="nav-button">
+                <img src="/svg/prev.svg" width="100" height="100" class="nav-button transition brightness-100 hover:brightness-100 hover:scale-110 transform transition-transform active:brightness-100">
+            </button>
+            <img id="modalImage" src="" alt="Modal Image" class="modal-img">
+            <button id="next" class="nav-button">
+                <img src="/svg/next.svg" width="100" height="100" class="nav-button transition brightness-100 hover:brightness-100 hover:scale-110 transform transition-transform active:brightness-100">
+            </button>
+        </div>
+    </div>
+
+    <script src="js/modal.js"></script>
+</body>
+</html>

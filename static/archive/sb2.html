@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rhubarb dogma</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../css/scrollbar.css">
+    <link rel="stylesheet" href="../css/modal.css">
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+    <header class="absolute top-0 left-0 m-4">
+        <a href="/" class="font-times text-xl hover:underline">rhubarb dogma</a>
+    </header>
+    
+    <span class="font-times block mt-24 mb-8 text-3xl center-text flex items-center justify-center">Sketchbook 2</span>
+    
+    <div class="gallery max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <img src="/archive/sb2/s1.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s10.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s12.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s13.jpg" loading="eager" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s14.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s15.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s16.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s19.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s2.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s24.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s25.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s26.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s27.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s3.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s30.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s32.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s33.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s38.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s39.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s4.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s40.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s5.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s6.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s7.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        <img src="/archive/sb2/s8.jpg" loading="lazy" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+        </div>
+    </div>
+
+    <!-- Modal for image viewing -->
+    <div id="imageModal" class="modal hidden">
+        <div class="modal-content">
+            <button id="prev" class="nav-button">
+                <img src="../svg/prev.svg" width="100" height="100" class="nav-button transition brightness-100 hover:brightness-100 hover:scale-110 transform transition-transform active:brightness-100">
+            </button>
+            <img id="modalImage" src="" alt="Modal Image" class="modal-img">
+            <button id="next" class="nav-button">
+                <img src="../svg/next.svg" width="100" height="100" class="nav-button transition brightness-100 hover:brightness-100 hover:scale-110 transform transition-transform active:brightness-100">
+            </button>
+        </div>
+    </div>
+
+    <script src="../js/modal.js"></script>
+</body>
+</html>
