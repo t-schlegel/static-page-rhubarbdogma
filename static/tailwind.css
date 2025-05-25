@@ -221,6 +221,11 @@
 
 /* Additional responsive adjustments */
 @layer utilities {
+  /* Index page specific overrides */
+  .index-page {
+    @apply !items-stretch !w-full;
+  }
+  
   /* Remove the no-title-spacer - we won't need it with our new approach */
 
   /* Container adjustments for better spacing */
