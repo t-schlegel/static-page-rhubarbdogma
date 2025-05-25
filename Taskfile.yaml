@@ -3,7 +3,7 @@ version: "3"
 tasks:
   generate:
     cmds:
-      - python3 generate_pages.py
+      - uv run generate_pages.py
 
   buildOnWindows:
     deps: [generate]

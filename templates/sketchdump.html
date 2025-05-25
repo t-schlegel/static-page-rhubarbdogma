@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="py-13"></div>
+    <div class="py-16"></div>
+
+    <span class="font-times block text-4xl md:text-9xl mb-8 center-text flex items-center justify-center">Sketch Dump</span>
+
+    <div class="gallery max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="flex flex-col gap-4">
+                {% for img in even_images %}
+                <img src="{{ img.src }}" loading="{{ img.loading }}" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+                {% endfor %}
+            </div>
+            <div class="flex flex-col gap-4">
+                {% for img in odd_images %}
+                <img src="{{ img.src }}" loading="{{ img.loading }}" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

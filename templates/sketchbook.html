@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <span class="font-times block mt-24 mb-8 text-3xl center-text flex items-center justify-center">{{ title }}</span>
+
+    <div class="gallery max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {% for img in images %}
+            <img src="{{ img.src }}" loading="{{ img.loading }}" class="w-full h-auto object-cover rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300 transition-all ease-in-out w-full">
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
