@@ -217,6 +217,10 @@
     /* Add spacing below the title */
     @apply mb-4 sm:mb-6 md:mb-8 lg:mb-10;
   }
+
+  .card-3d {
+    @apply transition-transform duration-300 ease-out;
+  }
 }
 
 /* Additional responsive adjustments */
