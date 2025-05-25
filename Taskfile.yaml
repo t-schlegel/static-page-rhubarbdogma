@@ -6,7 +6,6 @@ tasks:
       - uv run generate_pages.py
 
   buildOnWindows:
-    deps: [generate]
     cmds:
       - cd static && ../tailwindcss.exe -i "tailwind.css" -o "style.css" --minify
 
