@@ -53,9 +53,7 @@
 
 @layer base {
   body {
-    @apply flex flex-col items-center min-h-screen relative;
-    /* Top padding only for the header */
-    @apply justify-start pt-6 md:pt-8;
+    @apply min-h-screen relative;
   }
 
   img {
