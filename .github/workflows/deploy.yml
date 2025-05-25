@@ -32,13 +32,10 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v4
 
-      - name: Create temporary directory and fix paths
+      - name: Create temporary directory
         run: |
           mkdir -p _site
           cp -r static/* _site/
-          REPO_NAME=$(echo "$GITHUB_REPOSITORY" | cut -d'/' -f2)
-          find _site -type f -name "*.html" -exec sed -i "s|href=\"/|href=\"/$REPO_NAME/|g" {} +
-          find _site -type f -name "*.html" -exec sed -i "s|src=\"/|src=\"/$REPO_NAME/|g" {} +
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
