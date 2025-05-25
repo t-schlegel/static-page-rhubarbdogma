@@ -1,4 +1,4 @@
-This directory ("src") is the root of our static webpage.
+This directory ("static") is the root of our static webpage.
 
 Styling is done in style.css
 
