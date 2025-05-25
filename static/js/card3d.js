@@ -1,44 +1,55 @@
-me().on('mouseenter', ev => {
-    let e = me(ev)
-    e.bounds = e.getBoundingClientRect()
-    e.on('mousemove', e.rotateToPointer)
-}).on('mouseleave', ev => {
-    let e = me(ev)
-    e.off('mousemove', e.rotateToPointer)
-    e.style.transform = e.style.background = ''
-})
+// Vanilla JS implementation for 3D card hover effects
+document.addEventListener('DOMContentLoaded', function() {
+    const cardElements = document.querySelectorAll('.card-3d');
+    
+    cardElements.forEach(card => {
+        card.addEventListener('mouseenter', function(ev) {
+            const element = ev.currentTarget;
+            element.bounds = element.getBoundingClientRect();
+            element.addEventListener('mousemove', rotateToPointer);
+        });
 
-// Use a separate function for touch events to allow passive listener
-function handleTouchStart(ev) {
-    let e = me(ev)
-    e.bounds = e.getBoundingClientRect()
-    e.addEventListener('touchmove', e.rotateToPointer, { passive: true })
-    e.addEventListener('touchend', handleTouchEnd, { passive: true })
-}
+        card.addEventListener('mouseleave', function(ev) {
+            const element = ev.currentTarget;
+            element.removeEventListener('mousemove', rotateToPointer);
+            element.style.transform = '';
+            element.style.background = '';
+        });
 
-function handleTouchEnd(ev) {
-    let e = me(ev.target)
-    e.removeEventListener('touchmove', e.rotateToPointer)
-    e.removeEventListener('touchend', handleTouchEnd)
-    e.style.transform = e.style.background = ''
-}
+        // Touch events
+        card.addEventListener('touchstart', function(ev) {
+            const element = ev.currentTarget;
+            element.bounds = element.getBoundingClientRect();
+            element.addEventListener('touchmove', rotateToPointer, { passive: true });
+            element.addEventListener('touchend', handleTouchEnd, { passive: true });
+        }, { passive: true });
+    });
 
-me().addEventListener('touchstart', handleTouchStart, { passive: true })
-
-me().rotateToPointer = ev => {
-    let e = me(ev.target), b = e.bounds
-    let x, y
-    if (ev.type === 'touchmove') {
-        x = ev.touches[0].clientX - b.x - b.width / 2
-        y = ev.touches[0].clientY - b.y - b.height / 2
-    } else {
-        x = ev.clientX - b.x - b.width / 2
-        y = ev.clientY - b.y - b.height / 2
+    function handleTouchEnd(ev) {
+        const element = ev.currentTarget;
+        element.removeEventListener('touchmove', rotateToPointer);
+        element.removeEventListener('touchend', handleTouchEnd);
+        element.style.transform = '';
+        element.style.background = '';
     }
-    let d = Math.hypot(x,y)
-    let amt = 1.5
-    e.style.transform = `scale3d(${ 1 + 0.07 * amt }, ${ 1 + 0.07 * amt }, 1.0)
-                         rotate3d(${ y/100*amt }, ${ -x/100*amt }, 0, ${ Math.log(d)*2*amt }deg)`
-     // me('div', e).style.backgroundImage = `radial-gradient(
-      // circle at ${ x*2 + b.width/2 }px ${ y*2 + b.height/2 }px, #ff4f3f20, #0003030f)`
-}
+
+    function rotateToPointer(ev) {
+        const element = ev.currentTarget;
+        const bounds = element.bounds;
+        let x, y;
+        
+        if (ev.type === 'touchmove') {
+            x = ev.touches[0].clientX - bounds.x - bounds.width / 2;
+            y = ev.touches[0].clientY - bounds.y - bounds.height / 2;
+        } else {
+            x = ev.clientX - bounds.x - bounds.width / 2;
+            y = ev.clientY - bounds.y - bounds.height / 2;
+        }
+        
+        const d = Math.hypot(x, y);
+        const amt = 1.5;
+        
+        element.style.transform = `scale3d(${1 + 0.07 * amt}, ${1 + 0.07 * amt}, 1.0)
+                                   rotate3d(${y/100*amt}, ${-x/100*amt}, 0, ${Math.log(d)*2*amt}deg)`;
+    }
+});
