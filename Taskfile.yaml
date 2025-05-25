@@ -1,25 +1,31 @@
 version: "3"
 
 tasks:
-  buildOnWindows:
+  generate:
     cmds:
-      - ../tailwindcss.exe -i "tailwind.css" -o "style.css" --minify
+      - python3 generate_pages.py
+
+  buildOnWindows:
+    deps: [generate]
+    cmds:
+      - cd static && ../tailwindcss.exe -i "tailwind.css" -o "style.css" --minify
 
   serveOnWindows:
     deps: [buildOnWindows]
     cmds:
       - echo "Starting server at http://localhost:8000"
-      - python3 -m http.server 8000
+      - cd static && python3 -m http.server 8000
 
   build:
+    deps: [generate]
     cmds:
-      - tailwindcss -i "tailwind.css" -o "style.css" --minify
+      - cd static && tailwindcss -i "tailwind.css" -o "style.css" --minify
 
   serve:
     deps: [build]
     cmds:
       - echo "Starting server at http://localhost:8000"
-      - python3 -m http.server 8000
+      - cd static && python3 -m http.server 8000
 
   windows:
     desc: (for windows) build and run the site locally
