@@ -22,24 +22,26 @@
     <link rel="prefetch" href="/sketchdump/dicefinal.jpg" as="image" />
     <link rel="prefetch" href="/sketchdump/dog_w_bear.jpg" as="image" />
   </head>
-  <body class="relative index-page">
-    <header>
-      <a
-        href="/"
-        class="font-times text-xl hover:underline absolute top-0 left-0 m-4 z-10"
-        >rhubarb dogma</a
-      >
-      <nav class="absolute top-0 right-0 m-4 z-10">
-        <!-- Navigation items can be added here -->
-      </nav>
+  <body style="overflow-x:hidden; width:100vw; max-width:100%; position:relative;">
+    <header class="w-full fixed top-0 left-0 right-0">
+      <div class="max-w-screen-2xl mx-auto relative">
+        <a
+          href="/"
+          class="font-times text-xl hover:underline absolute top-0 left-0 m-4 z-10"
+          >rhubarb dogma</a
+        >
+        <nav class="absolute top-0 right-0 m-4 z-10">
+          <!-- Navigation items can be added here -->
+        </nav>
+      </div>
     </header>
 
-    <div>
-      <div>
+    <div class="container mx-auto flex justify-center items-center min-h-screen">
+      <div class="w-full flex justify-center">
         <!-- Grid layout for medium screens and above -->
         <div
           id="desktop-grid"
-          class="hidden md:grid md:grid-cols-100 md:grid-rows-100 gap-0 h-[95vh] w-[95vw] relative"
+          class="hidden md:grid md:grid-cols-100 md:grid-rows-100 gap-0 h-screen max-w-7xl relative mx-auto"
         >
           <a
             id="archive"

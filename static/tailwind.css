@@ -88,8 +88,9 @@
 
 @layer base {
   body {
-    @apply flex flex-col items-center min-h-screen relative;
-    @apply justify-start pt-6 md:pt-8;
+    @apply flex flex-col items-center min-h-screen;
+    @apply pt-6 md:pt-8;
+    overflow-x: hidden !important;
   }
 
   img {
@@ -227,7 +228,7 @@
 @layer utilities {
   /* Index page specific overrides */
   .index-page {
-    @apply !items-stretch !w-full;
+    @apply !items-center !w-full max-w-full overflow-x-hidden;
   }
   
   /* Remove the no-title-spacer - we won't need it with our new approach */
@@ -250,6 +251,10 @@
     body {
       /* Limit max width on ultra-wide screens */
       @apply max-w-screen-2xl mx-auto;
+    }
+    #desktop-grid {
+      /* Prevent extreme scaling on ultra-wide screens */
+      @apply max-w-[1536px];
     }
   }
 
