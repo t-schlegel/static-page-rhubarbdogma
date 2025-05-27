@@ -38,15 +38,17 @@
 
     <div class="flex justify-center items-center min-h-screen w-full">
       <div class="flex justify-center items-center w-full">
-        <!-- Grid layout for medium screens and above -->
+        <!-- Absolute layout for medium screens and above -->
         <div
           id="desktop-grid"
-          class="hidden md:grid md:grid-cols-100 md:grid-rows-100 gap-0 h-screen relative mx-auto max-w-6xl"
+          class="hidden md:block h-screen relative mx-auto max-w-6xl w-full"
+          style="aspect-ratio: 1;"
         >
           <a
             id="archive"
             href="archive.html"
-            class="col-start-12 row-start-18 row-span-28 col-span-28 relative cursor-pointer -rotate-[13deg]"
+            class="absolute cursor-pointer -rotate-[13deg]"
+            style="--x: -5%; --y: 13%; --w: 32%; --h: 32; left: var(--x); top: var(--y); width: var(--w); height: var(--h);"
           >
             <div
               class="group flex flex-col items-center relative w-full h-full"
@@ -65,10 +67,11 @@
           <a
             id="ytc"
             href="map.html"
-            class="col-start-68 row-start-25 col-span-18 row-span-18 relative item-center w-full h-full object-cover"
+            class="absolute"
+            style="--x: 68%; --y: 16%; --w: 22%; --h: 22%; left: var(--x); top: var(--y); width: var(--w); height: var(--h);"
           >
             <div
-              class="group col-span-13 row-span-13 relative items-center relative w-full h-full"
+              class="group relative items-center w-full h-full"
             >
               <img
                 src="/svg/ytc-1.svg"
@@ -84,18 +87,19 @@
           <a
             id="datura"
             href="#"
-            class="col-start-44 row-start-20 col-span-18 row-span-18 w-full h-full object-cover relative"
+            class="absolute"
+            style="--x: 17%; --y: 20%; --w: 60%; --h: 60%; left: var(--x); top: var(--y); width: var(--w); height: var(--h);"
           >
             <div
-              class="group col-span-20 row-span-20 relative flex flex-col items-center relative"
+              class="group relative flex flex-col items-center w-full h-full"
             >
               <img
                 src="/svg/datura-1.svg"
-                class="items-center justify-center group-hover:hide group-hover:opacity-0 transform transition-all ease-in-out"
+                class="w-full h-full items-center justify-center group-hover:hide group-hover:opacity-0 transform transition-all ease-in-out"
               />
               <img
                 src="/svg/datura-2.svg"
-                class="absolute items-center justify-center left-0 opacity-0 transition-all group-hover:opacity-100 transform scale-100 ease-in-out"
+                class="w-full h-full absolute items-center justify-center top-0 left-0 opacity-0 transition-all group-hover:opacity-100 transform scale-100 ease-in-out"
               />
             </div>
           </a>
@@ -103,10 +107,11 @@
           <a
             id="sketch-dump"
             href="sketchdump.html"
-            class="col-start-18 row-start-70 col-span-16 row-span-16 w-full h-full object-cover relative"
+            class="absolute"
+            style="--x: 0%; --y: 65%; --w: 28%; --h: 28%; left: var(--x); top: var(--y); width: var(--w); height: var(--h);"
           >
             <div
-              class="group col-span-16 row-span-16 relative items-center relative"
+              class="group relative items-center w-full h-full"
             >
               <img
                 src="/svg/sketch-dump-1.svg"
@@ -122,9 +127,10 @@
           <a
             id="grotto-goblins"
             href="#"
-            class="col-start-73 row-start-65 col-span-12 row-span-12 w-full h-full object-cover relative"
+            class="absolute"
+            style="--x: 66%; --y: 60%; --w: 28%; --h: 28%; left: var(--x); top: var(--y); width: var(--w); height: var(--h);"
           >
-            <div class="group relative items-center">
+            <div class="group relative items-center w-full h-full">
               <img
                 src="/svg/grotto-goblins-1.svg"
                 class="w-full h-full group-hover:hide group-hover:opacity-0 transform rotate-3 ease-in-out transition-all ease-in-out"
