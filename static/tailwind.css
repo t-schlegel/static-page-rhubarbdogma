@@ -578,14 +578,14 @@
   /* Large Desktops (1440px+) */
   @media (min-width: 1440px) {
     #desktop-grid #archive {
-      --x: -7%;
+      --x: -9%;
       --y: 11%;
-      --w: 34%;
-      --h: 34%;
+      --w: 31%;
+      --h: 31%;
     }
     
     #desktop-grid #ytc {
-      --x: 66%;
+      --x: 70%;
       --y: 14%;
       --w: 24%;
       --h: 24%;
@@ -606,7 +606,7 @@
     }
     
     #desktop-grid #grotto-goblins {
-      --x: 64%;
+      --x: 70%;
       --y: 58%;
       --w: 30%;
       --h: 30%;
