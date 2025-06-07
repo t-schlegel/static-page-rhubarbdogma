@@ -420,6 +420,27 @@
     max-width: 100%;
     overflow-x: hidden;
   }
+  
+  /* Scrollbar visibility control */
+  body {
+    /* Show scrollbar on mobile only */
+    @media (max-width: 767px) {
+      overflow-y: auto !important;
+    }
+    
+    /* Hide scrollbar on md breakpoint and above */
+    @media (min-width: 768px) {
+      overflow-y: hidden !important;
+      scrollbar-width: none; /* Firefox */
+    }
+    
+    /* Hide scrollbar for Chrome, Safari and Opera */
+    @media (min-width: 768px) {
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
 
   /* Container adjustments for better spacing */
   .container-fluid {
