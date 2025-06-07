@@ -19,6 +19,19 @@ tasks:
     deps: [generate]
     cmds:
       - cd static && tailwindcss -i "tailwind.css" -o "style.css" --minify
+    sources:
+      - "**/*.html"
+      - "static/tailwind.css"
+    generates:
+      - "static/style.css"
+
+  watch:
+    deps: [generate]
+    cmds:
+      - cd static && tailwindcss -i "tailwind.css" -o "style.css" --watch
+    sources:
+      - "**/*.html"
+      - "static/tailwind.css"
 
   serve:
     deps: [build]
