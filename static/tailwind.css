@@ -413,6 +413,24 @@
 
 /* Additional responsive adjustments */
 @layer utilities {
+  /* Scrollbar styling for all pages */
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  body::-webkit-scrollbar-track {
+    background-color: transparent;
+  }
+  
+  body::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+  }
+  
+  body::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
   /* Index page specific overrides */
   .index-page {
     align-items: center !important;
@@ -421,8 +439,8 @@
     overflow-x: hidden;
   }
   
-  /* Scrollbar visibility control */
-  body {
+  /* Scrollbar visibility control for index page only */
+  body.index-page {
     /* Show scrollbar on mobile only */
     @media (max-width: 767px) {
       overflow-y: auto !important;
