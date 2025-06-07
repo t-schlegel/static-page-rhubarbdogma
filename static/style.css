@@ -1683,6 +1683,38 @@ body.index-page {
     top: 65%;
   }
 
+  .xl\:left-\[3\%\] {
+    left: 3%;
+  }
+
+  .xl\:top-\[17\%\] {
+    top: 17%;
+  }
+
+  .xl\:left-\[5\%\] {
+    left: 5%;
+  }
+
+  .xl\:left-\[7\%\] {
+    left: 7%;
+  }
+
+  .xl\:top-\[63\%\] {
+    top: 63%;
+  }
+
+  .xl\:left-\[63\%\] {
+    left: 63%;
+  }
+
+  .xl\:left-\[62\%\] {
+    left: 62%;
+  }
+
+  .xl\:top-\[59\%\] {
+    top: 59%;
+  }
+
   .xl\:h-\[22\%\] {
     height: 22%;
   }
@@ -1699,6 +1731,22 @@ body.index-page {
     height: 60%;
   }
 
+  .xl\:h-\[29\%\] {
+    height: 29%;
+  }
+
+  .xl\:h-\[30\%\] {
+    height: 30%;
+  }
+
+  .xl\:h-\[26\%\] {
+    height: 26%;
+  }
+
+  .xl\:h-\[27\%\] {
+    height: 27%;
+  }
+
   .xl\:w-\[22\%\] {
     width: 22%;
   }
@@ -1713,6 +1761,22 @@ body.index-page {
 
   .xl\:w-\[60\%\] {
     width: 60%;
+  }
+
+  .xl\:w-\[29\%\] {
+    width: 29%;
+  }
+
+  .xl\:w-\[30\%\] {
+    width: 30%;
+  }
+
+  .xl\:w-\[26\%\] {
+    width: 26%;
+  }
+
+  .xl\:w-\[27\%\] {
+    width: 27%;
   }
 }
 
