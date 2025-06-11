@@ -244,6 +244,31 @@
           'sketch-dump': 'sketchdump-sound'
         };
 
+        // Enable audio context after first user interaction
+        let audioEnabled = false;
+        const enableAudio = () => {
+          if (!audioEnabled) {
+            Object.values(soundMappings).forEach(audioId => {
+              const audio = document.getElementById(audioId);
+              if (audio) {
+                audio.volume = 0;
+                audio.play().then(() => {
+                  audio.pause();
+                  audio.currentTime = 0;
+                  audio.volume = 1;
+                }).catch(() => {});
+              }
+            });
+            audioEnabled = true;
+          }
+        };
+
+        // Add multiple event listeners to enable audio on any user interaction
+        const enableEvents = ['click', 'touchstart', 'mousedown', 'keydown', 'mousemove'];
+        enableEvents.forEach(event => {
+          document.addEventListener(event, enableAudio, { once: true });
+        });
+
         // Desktop - target the .group divs that control SVG transitions
         Object.keys(soundMappings).forEach(linkId => {
           const linkElement = document.getElementById(linkId);
@@ -255,6 +280,11 @@
               groupDiv.addEventListener('mouseenter', function() {
                 audioElement.currentTime = 0;
                 audioElement.play().catch(e => console.log('Audio play failed:', e));
+              });
+              
+              groupDiv.addEventListener('mouseleave', function() {
+                audioElement.pause();
+                audioElement.currentTime = 0;
               });
             }
           }
@@ -278,6 +308,11 @@
               groupDiv.addEventListener('mouseenter', function() {
                 audioElement.currentTime = 0;
                 audioElement.play().catch(e => console.log('Audio play failed:', e));
+              });
+              
+              groupDiv.addEventListener('mouseleave', function() {
+                audioElement.pause();
+                audioElement.currentTime = 0;
               });
             }
           }
