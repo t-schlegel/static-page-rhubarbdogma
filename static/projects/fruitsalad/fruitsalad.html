@@ -224,9 +224,9 @@
         showImage(currentImageIndex + 1);
       });
 
-      // Close modal when clicking outside the content
+      // Close modal when clicking outside the content or on the image
       modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
+        if (e.target === modal || e.target === modalImg) {
           closeModal();
         }
       });
