@@ -30,15 +30,15 @@
       
       .gallery-item {
         cursor: pointer;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: transform 0.3s ease-out;
         border-radius: 8px;
         overflow: hidden;
       }
       
       .gallery-item:hover {
         transform: scale(1.05);
-        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
       }
+      
       
       .gallery-item img {
         width: 100%;
@@ -92,9 +92,6 @@
         transition: all 0.3s ease;
       }
       
-      .nav-button img:hover {
-        transform: scale(1.1);
-      }
       
       
       @media (max-width: 768px) {
@@ -176,11 +173,11 @@
     <div class="modal" id="imageModal">
       <div class="modal-content">
         <button id="prev" class="nav-button">
-          <img src="../../svg/prev.svg" width="100" height="100" class="nav-button transition brightness-100 hover:brightness-100 hover:scale-110 transform transition-transform active:brightness-100">
+          <img src="../../svg/prev.svg" width="100" height="100" class="nav-button transition brightness-100 transform transition-transform active:brightness-100">
         </button>
         <img id="modalImage" src="" alt="Modal Image" class="modal-img">
         <button id="next" class="nav-button">
-          <img src="../../svg/next.svg" width="100" height="100" class="nav-button transition brightness-100 hover:brightness-100 hover:scale-110 transform transition-transform active:brightness-100">
+          <img src="../../svg/next.svg" width="100" height="100" class="nav-button transition brightness-100 transform transition-transform active:brightness-100">
         </button>
       </div>
     </div>
