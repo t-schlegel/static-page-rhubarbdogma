@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 35px;
+            background: #f8f9fa;
+            color: #333;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .header h1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .blocks-grid {
+            column-count: 3;
+            column-gap: 20px;
+            padding: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .blocks-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .blocks-grid {
+                column-count: 1;
+            }
+        }
+        
+        .block {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: transparent;
+            transition: transform 0.2s;
+            display: block;
+            width: 100%;
+        }
+        
+        .block:hover {
+            transform: translateY(-2px);
+        }
+        
+        .block-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+    </style>
+</head>
+<body>
+    <header
+      class="w-full fixed top-0 left-0 right-0"
+      style="width: 100%; max-width: 100%"
+    >
+      <div class="max-w-screen-2xl mx-auto relative">
+        <a
+          href="/"
+          class="font-times text-xl hover:underline fixed top-0 left-0 m-4 z-10"
+          >rhubarb dogma</a
+        >
+        <nav class="fixed top-0 right-0 m-4 z-10">
+          <!-- Navigation items can be added here -->
+        </nav>
+      </div>
+    </header>
+    
+    <div class="py-13"></div>
+    <div class="py-16"></div>
+    
+    <span class="font-times block text-4xl md:text-9xl mb-8 text-center w-full">Projects</span>
+    
+    <div class="blocks-grid">
+        <a href="/projects/fruitsalad/fruitsalad.html" class="block">
+            <img src="/projects/thumbs/fruitsaladthumb.png" alt="Fruit Salad Project" class="block-image">
+        </a>
+        <a href="/projects/ytcbooklet/ytcbooklet.html" class="block">
+            <img src="/projects/thumbs/ytcthumb.png" alt="YTC Booklet Project" class="block-image">
+        </a>
+        <a href="/projects/smk/smk.html" class="block">
+            <img src="/projects/thumbs/smkthumb.png" alt="SMK Project" class="block-image">
+        </a>
+    </div>
+</body>
+</html>
