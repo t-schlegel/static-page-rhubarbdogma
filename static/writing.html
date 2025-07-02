@@ -11,7 +11,8 @@
             margin: 0;
             padding: 80px 20px 20px 20px;
             line-height: 1.6;
-            display: block !important;
+            display: flex !important;
+            justify-content: space-between;
             align-items: flex-start !important;
         }
         h1 {
@@ -35,6 +36,21 @@
         .date-list a:hover {
             color: #004499;
         }
+        /* Content container for the writing list on the left side */
+        .content-container {
+            flex: 1;
+            max-width: 60%;
+        }
+        /* Image container for the picture on the right side */
+        .image-container {
+            flex: 0 0 35%;
+            padding-left: 40px;
+        }
+        .image-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -51,14 +67,25 @@
       </div>
     </header>
 
-    <h1 class="text-3xl">writing</h1>
-    
-    <ul class="date-list">
-        <li><a href="#">Jul 16 - Jul 22</a></li>
-        <li><a href="#">Jul 9 - Jul 15</a></li>
-        <li><a href="writing/7-1-25.html">Jul 1 - Jul 8</a></li>
+    <!-- CONTENT CONTAINER: Main writing content on the left side -->
+    <div class="content-container">
+        <h1 class="text-3xl">writing</h1>
         
-      
-    </ul>
+        <ul class="date-list">
+            <li><a href="#">Jul 16 - Jul 22</a></li>
+            <li><a href="#">Jul 9 - Jul 15</a></li>
+            <li><a href="writing/7-1-25.html">Jul 1 - Jul 8</a></li>
+            
+          
+        </ul>
+    </div>
+
+    <!-- IMAGE CONTAINER: Picture placeholder on the right side -->
+    <div class="image-container">
+        <!-- TODO: Add your image here - replace the href with your image path -->
+        <img src="" alt="Writing page image" style="display: none;" />
+        <!-- Placeholder text - remove this when adding your image -->
+        <p style="color: #666; font-style: italic;">Image placeholder - add your picture here</p>
+    </div>
 </body>
 </html>
