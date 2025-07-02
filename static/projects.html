@@ -6,6 +6,48 @@
     <title>rhubarb dogma</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="css/modal.css">
+    <style>
+        .blocks-grid {
+            column-count: 3;
+            column-gap: 20px;
+            padding: 20px;
+        }
+        
+        @media (max-width: 900px) {
+            .blocks-grid {
+                column-count: 2;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .blocks-grid {
+                column-count: 1;
+            }
+        }
+        
+        .block {
+            break-inside: avoid;
+            margin-bottom: 20px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: block;
+            width: 100%;
+        }
+        
+        .block:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+        }
+        
+        .block-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+        }
+    </style>
 </head>
 <body class="bg-white-100 p-4 md:p-8">
     <header class="absolute top-0 left-0 m-4">
@@ -17,18 +59,16 @@
 
     <span class="font-times block text-4xl md:text-9xl mb-8 center-text flex items-center justify-center">Projects</span>
 
-    <div class="gallery max-w-7xl mx-auto">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-items-center p-2">
-            <a href="/projects/fruitsalad/fruitsalad.html">
-                <img src="/projects/thumbs/fruitsaladthumb.png" loading="eager" class="w-full h-64 object-cover rounded-lg transform transition-transform duration-300 ease-out cursor-pointer hover:scale-105">
-            </a>
-            <a href="/projects/ytcbooklet/ytcbooklet.html">
-                <img src="/projects/thumbs/ytcthumb.png" loading="eager" class="w-full h-64 object-cover rounded-lg transform transition-transform duration-300 ease-out cursor-pointer hover:scale-105">
-            </a>
-            <a href="/projects/smk/smk.html">
-                <img src="/projects/thumbs/smkthumb.png" loading="eager" class="w-full h-64 object-cover rounded-lg transform transition-transform duration-300 ease-out cursor-pointer hover:scale-105">
-            </a>
-        </div>
+    <div class="blocks-grid">
+        <a href="/projects/fruitsalad/fruitsalad.html" class="block">
+            <img src="/projects/thumbs/fruitsaladthumb.png" loading="eager" class="block-image">
+        </a>
+        <a href="/projects/ytcbooklet/ytcbooklet.html" class="block">
+            <img src="/projects/thumbs/ytcthumb.png" loading="eager" class="block-image">
+        </a>
+        <a href="/projects/smk/smk.html" class="block">
+            <img src="/projects/thumbs/smkthumb.png" loading="eager" class="block-image">
+        </a>
     </div>
 
     <script src="js/modal.js"></script>

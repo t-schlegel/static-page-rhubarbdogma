@@ -22,19 +22,6 @@
     <link rel="prefetch" href="/sketchdump/dicefinal.jpg" as="image" />
     <link rel="prefetch" href="/sketchdump/dog_w_bear.jpg" as="image" />
 
-    <!-- Audio elements for hover sounds -->
-    <audio id="archive-sound" preload="auto">
-      <source src="/sounds/archive.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="ytc-sound" preload="auto">
-      <source src="/sounds/ytc.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="datura-sound" preload="auto">
-      <source src="/sounds/datura.mp3" type="audio/mpeg">
-    </audio>
-    <audio id="sketchdump-sound" preload="auto">
-      <source src="/sounds/sketchdump.mp3" type="audio/mpeg">
-    </audio>
   </head>
   <body class="index-page" style="width: 100%; max-width: 100%; position: relative">
     <header
@@ -240,89 +227,5 @@
       </div>
     </div>
 
-    <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const soundMappings = {
-          'archive': 'archive-sound',
-          'ytc': 'ytc-sound', 
-          'datura': 'datura-sound',
-          'sketch-dump': 'sketchdump-sound'
-        };
-
-        // Enable audio context after first user interaction
-        let audioEnabled = false;
-        const enableAudio = () => {
-          if (!audioEnabled) {
-            Object.values(soundMappings).forEach(audioId => {
-              const audio = document.getElementById(audioId);
-              if (audio) {
-                audio.volume = 0;
-                audio.play().then(() => {
-                  audio.pause();
-                  audio.currentTime = 0;
-                  audio.volume = 1;
-                }).catch(() => {});
-              }
-            });
-            audioEnabled = true;
-          }
-        };
-
-        // Add multiple event listeners to enable audio on any user interaction
-        const enableEvents = ['click', 'touchstart', 'mousedown', 'keydown', 'mousemove'];
-        enableEvents.forEach(event => {
-          document.addEventListener(event, enableAudio, { once: true });
-        });
-
-        // Desktop - target the .group divs that control SVG transitions
-        Object.keys(soundMappings).forEach(linkId => {
-          const linkElement = document.getElementById(linkId);
-          const audioElement = document.getElementById(soundMappings[linkId]);
-          
-          if (linkElement && audioElement) {
-            const groupDiv = linkElement.querySelector('.group');
-            if (groupDiv) {
-              groupDiv.addEventListener('mouseenter', function() {
-                audioElement.currentTime = 0;
-                audioElement.play().catch(e => console.log('Audio play failed:', e));
-              });
-              
-              groupDiv.addEventListener('mouseleave', function() {
-                audioElement.pause();
-                audioElement.currentTime = 0;
-              });
-            }
-          }
-        });
-
-        // Mobile - target the .group divs within mobile links
-        const mobileLinks = document.querySelectorAll('#mobile-grid a');
-        mobileLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          let audioId = null;
-          
-          if (href === 'archive.html') audioId = 'archive-sound';
-          else if (href === 'map.html') audioId = 'ytc-sound';
-          else if (href === 'datura.html') audioId = 'datura-sound';
-          else if (href === 'sketchdump.html') audioId = 'sketchdump-sound';
-          
-          if (audioId) {
-            const audioElement = document.getElementById(audioId);
-            const groupDiv = link.querySelector('.group');
-            if (audioElement && groupDiv) {
-              groupDiv.addEventListener('mouseenter', function() {
-                audioElement.currentTime = 0;
-                audioElement.play().catch(e => console.log('Audio play failed:', e));
-              });
-              
-              groupDiv.addEventListener('mouseleave', function() {
-                audioElement.pause();
-                audioElement.currentTime = 0;
-              });
-            }
-          }
-        });
-      });
-    </script>
   </body>
 </html>
