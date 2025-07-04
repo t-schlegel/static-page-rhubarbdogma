@@ -73,6 +73,13 @@ class PageGenerator:
                 return False
             
             # Create image data
+            # Sort image files naturally (e.g., s1.jpg, s2.jpg, s10.jpg instead of s1.jpg, s10.jpg, s2.jpg)
+            import re
+            def natural_sort_key(filename):
+                return [int(text) if text.isdigit() else text.lower()
+                       for text in re.split('([0-9]+)', filename)]
+            
+            image_files.sort(key=natural_sort_key)
             images = self._create_image_data(image_files, f"/archive/{sketchbook_name}")
             
             # Render template

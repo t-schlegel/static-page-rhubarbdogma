@@ -6,7 +6,9 @@ SKETCHBOOKS = [
     ("sb2", "Sketchbook 2"),
     ("sb3", "Sketchbook 3"),
     ("sb4", "Sketchbook 4"),
-    ("sb5", "Sketchbook 5")
+    ("sb5", "Sketchbook 5"),
+    ("sb6", "Sketchbook 6")
+
 ]
 
 # File extensions to include
