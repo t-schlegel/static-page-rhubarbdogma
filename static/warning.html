@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mobile Warning - rhubarb dogma</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico?v=2">
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Times New Roman', Times, serif;
+        background-color: white;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        overflow: hidden;
+      }
+      
+      .warning-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        max-width: 90%;
+        text-align: center;
+        gap: 30px;
+      }
+      
+      .warning-image {
+        flex: 0 0 auto;
+        max-height: 40vh;
+        max-width: 100%;
+        width: 100%;
+      }
+      
+      .warning-image img {
+        width: 100%;
+        height: auto;
+        max-height: 40vh;
+        object-fit: contain;
+      }
+      
+      .warning-text {
+        flex: 0 0 auto;
+        padding: 0 10px;
+      }
+      
+      .warning-text h1 {
+        font-size: 1.5rem;
+        margin-bottom: 15px;
+        color: #333;
+      }
+      
+      .warning-text p {
+        font-size: 1rem;
+        line-height: 1.4;
+        color: black;
+        margin-bottom: 10px;
+      }
+      
+      .proceed-button {
+        flex: 0 0 auto;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 15px 30px;
+        font-size: 1.1rem;
+        font-family: 'Times New Roman', Times, serif;
+        border-radius: 25px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        min-height: 50px;
+        width: 200px;
+        max-width: 80%;
+      }
+      
+      .proceed-button:hover {
+        background-color: #555;
+      }
+      
+      .proceed-button:active {
+        background-color: #222;
+      }
+      
+      @media (max-height: 600px) {
+        .warning-container {
+          gap: 20px;
+        }
+        
+        .warning-image {
+          max-height: 30vh;
+        }
+        
+        .warning-text p {
+          font-size: 0.9rem;
+          margin-bottom: 8px;
+        }
+        
+        .proceed-button {
+          padding: 12px 25px;
+          font-size: 1rem;
+        }
+      }
+      
+      @media (max-height: 500px) {
+        .warning-container {
+          gap: 15px;
+          padding: 10px 0;
+        }
+        
+        .warning-image {
+          max-height: 25vh;
+        }
+        
+        .warning-text p {
+          font-size: 0.85rem;
+          margin-bottom: 5px;
+        }
+        
+        .proceed-button {
+          padding: 10px 20px;
+          font-size: 0.9rem;
+          min-height: 40px;
+          border-radius: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="warning-container">
+      <div class="warning-image">
+        <img src="mobilewarning.png">
+      </div>
+      
+      <div class="warning-text">
+        <p>Rhubarb Dogma was built for desktop viewing and may not display properly on mobile devices!</p>
+        <p>For the best experience, please visit on a desktop or laptop computer.</p>
+      </div>
+      
+      <button class="proceed-button" onclick="proceedToSite()">Proceed Anyway</button>
+    </div>
+
+    <script>
+      function proceedToSite() {
+        // Set a flag to bypass the warning on subsequent visits
+        sessionStorage.setItem('mobile-warning-dismissed', 'true');
+        // Redirect to the main site
+        window.location.href = 'index.html';
+      }
+      
+      // Prevent back button from showing warning again during this session
+      window.addEventListener('pageshow', function(event) {
+        if (event.persisted || sessionStorage.getItem('mobile-warning-dismissed')) {
+          // If user comes back via back button and already dismissed warning, redirect
+          if (sessionStorage.getItem('mobile-warning-dismissed') && 
+              document.referrer.includes('index.html')) {
+            window.location.href = 'index.html';
+          }
+        }
+      });
+    </script>
+  </body>
+</html>
