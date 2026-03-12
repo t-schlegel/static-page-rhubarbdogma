@@ -1,0 +1,472 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+  <meta name="viewport" content="width=device-width">
+  <title>~taylor's blog~ :: thoughts from the void</title>
+  <style type="text/css">
+    body {
+      background-color: #2a2a2a;
+      color: #e0e0e0;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      color: #88ccff;
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: #cc88ff;
+    }
+
+    a:hover {
+      color: #ffffff;
+      background-color: #444444;
+    }
+
+    /* ---- TOP BANNER ---- */
+    #banner {
+      background-color: #111111;
+      border-bottom: 3px solid #888888;
+      padding: 10px 0 6px 0;
+      text-align: center;
+    }
+
+    #banner h1 {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 28px;
+      color: #ffffff;
+      margin: 0 0 4px 0;
+      padding: 0;
+      letter-spacing: 3px;
+      text-shadow: 2px 2px #000000;
+    }
+
+    #banner p.tagline {
+      font-size: 11px;
+      color: #aaaaaa;
+      margin: 0;
+      padding: 0;
+      font-style: italic;
+    }
+
+    /* ---- NAVBAR ---- */
+    #navbar {
+      background-color: #1a1a1a;
+      border-top: 1px solid #555555;
+      border-bottom: 2px solid #555555;
+      padding: 6px 0;
+      text-align: center;
+    }
+
+    #navbar a {
+      display: inline-block;
+      background-color: #aa0000;
+      color: #ffffff;
+      font-size: 11px;
+      font-weight: bold;
+      border: 2px outset #ff8888;
+      padding: 3px 8px;
+      margin: 0 3px;
+      font-family: "Times New Roman", Times, serif;
+      text-decoration: none;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+    }
+
+    #navbar a:visited {
+      color: #ffffff;
+    }
+
+    #navbar a:hover {
+      background-color: #cc0000;
+      color: #ffffff;
+      border-style: inset;
+    }
+
+    /* ---- OUTER WRAPPER ---- */
+    #outer {
+      width: 780px;
+      margin: 14px auto 0 auto;
+    }
+
+    /* ---- MAIN CONTENT AREA ---- */
+    #main-content {
+      background-color: #2a2a2a;
+      padding: 0 8px;
+      vertical-align: top;
+    }
+
+    /* ---- SECTION HEADERS ---- */
+    h2.section-header {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 16px;
+      color: #ffffff;
+      border-bottom: 1px solid #555555;
+      padding-bottom: 2px;
+      margin: 0 0 10px 0;
+      letter-spacing: 1px;
+    }
+
+    /* ---- BLOG ENTRIES ---- */
+    .entry {
+      border: 1px solid #3d3d3d;
+      background-color: #252525;
+      margin-bottom: 16px;
+      padding: 10px 12px;
+    }
+
+    .entry-title {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 15px;
+      color: #ffffff;
+      margin: 0 0 3px 0;
+    }
+
+    .entry-meta {
+      font-size: 11px;
+      color: #777777;
+      margin-bottom: 8px;
+      border-bottom: 1px dotted #3a3a3a;
+      padding-bottom: 5px;
+    }
+
+    .entry-body {
+      font-size: 13px;
+      line-height: 1.6;
+      color: #d0d0d0;
+    }
+
+    .entry-body p {
+      margin: 0 0 8px 0;
+    }
+
+    .entry-footer {
+      margin-top: 8px;
+      font-size: 11px;
+      color: #666666;
+      border-top: 1px dotted #3a3a3a;
+      padding-top: 5px;
+    }
+
+    /* ---- SIDEBAR WIDGETS ---- */
+    .widget {
+      margin-bottom: 14px;
+    }
+
+    .widget ul {
+      margin: 0;
+      padding: 0 0 0 14px;
+      list-style-type: square;
+    }
+
+    .widget ul li {
+      margin-bottom: 4px;
+      font-size: 12px;
+      color: #bbbbbb;
+    }
+
+    .widget p {
+      font-size: 12px;
+      color: #bbbbbb;
+      margin: 0 0 5px 0;
+      line-height: 1.5;
+    }
+
+    /* ---- COUNTER / BADGE AREA ---- */
+    .counter-box {
+      background-color: #111111;
+      border: 1px inset #555555;
+      color: #00ff41;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 18px;
+      letter-spacing: 4px;
+      text-align: center;
+      padding: 4px 6px;
+      margin: 6px 0;
+      font-weight: bold;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #000088;
+      color: #ffffff;
+      font-size: 9px;
+      font-weight: bold;
+      border: 2px outset #aaaaff;
+      padding: 2px 4px;
+      margin: 2px 2px 2px 0;
+      font-family: "Times New Roman", Times, serif;
+      text-decoration: none;
+      vertical-align: middle;
+      letter-spacing: 0.5px;
+    }
+
+    .badge:visited {
+      color: #ffffff;
+    }
+
+    .badge.green { background-color: #006600; border-color: #88ff88; }
+    .badge.red { background-color: #880000; border-color: #ff8888; }
+    .badge.purple { background-color: #440088; border-color: #cc88ff; }
+
+    /* ---- MARQUEE ---- */
+    .marquee-bar {
+      background-color: #111111;
+      border-top: 1px solid #444444;
+      border-bottom: 1px solid #444444;
+      padding: 3px 0;
+      overflow: hidden;
+      font-size: 11px;
+      color: #aaaaaa;
+    }
+
+    /* ---- FOOTER ---- */
+    #footer {
+      border-top: 2px solid #555555;
+      margin-top: 16px;
+      padding: 10px 0;
+      text-align: center;
+      font-size: 11px;
+      color: #666666;
+    }
+
+    #footer a {
+      color: #777777;
+    }
+
+    /* ---- MISC ---- */
+    .highlight { color: #ffffff; }
+    .green-text { color: #88ff88; }
+    .red-text { color: #ff8888; }
+    .blink { text-decoration: blink; }
+
+    hr {
+      border: 0;
+      border-top: 1px solid #444444;
+      margin: 10px 0;
+    }
+
+    blockquote {
+      border-left: 3px solid #555555;
+      margin: 8px 0 8px 10px;
+      padding: 4px 10px;
+      color: #aaaaaa;
+      font-style: italic;
+    }
+
+    .mood-bar {
+      font-size: 11px;
+      color: #888888;
+      margin-bottom: 10px;
+    }
+
+    .tag {
+      display: inline;
+      background-color: #333333;
+      border: 1px solid #555555;
+      padding: 0 4px;
+      font-size: 10px;
+      color: #999999;
+      margin-right: 3px;
+    }
+
+    /* ---- POST INDEX TABLE ---- */
+    #post-index {
+      width: 100%;
+      border-collapse: collapse;
+      border: 4px solid #777777;
+      background-color: #ffffff;
+      color: #111111;
+    }
+
+    #post-index td {
+      padding: 10px 12px;
+      border-bottom: 1px solid #bbbbbb;
+      vertical-align: middle;
+    }
+
+    #post-index tr:last-child td {
+      border-bottom: none;
+    }
+
+    #post-index tr:hover td {
+      background-color: #f0f0f0;
+    }
+
+    .index-thumb {
+      width: 80px;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .index-thumb img {
+      width: 72px;
+      height: 54px;
+      border: 1px solid #aaaaaa;
+      display: block;
+      margin: 0 auto;
+      object-fit: cover;
+    }
+
+    .index-thumb .thumb-placeholder {
+      width: 72px;
+      height: 54px;
+      background-color: #cccccc;
+      border: 1px solid #aaaaaa;
+      display: block;
+      margin: 0 auto;
+      font-size: 9px;
+      color: #888888;
+      text-align: center;
+      line-height: 54px;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+    .index-info {
+      padding-left: 6px;
+    }
+
+    .index-info a {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 15px;
+      font-weight: bold;
+      color: #000088;
+      text-decoration: underline;
+    }
+
+    .index-info a:visited {
+      color: #440088;
+    }
+
+    .index-info a:hover {
+      background-color: #ffffcc;
+      color: #000000;
+    }
+
+    .index-desc {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 13px;
+      color: #444444;
+      margin-top: 3px;
+    }
+
+    .index-date {
+      font-family: "Times New Roman", Times, serif;
+      font-size: 11px;
+      color: #888888;
+      margin-top: 2px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ==================================================
+     POST REGISTRY
+     ----------------------------------------------------
+     To add a new post, copy one of the entries below
+     and fill in the four fields:
+
+       title  : the post title (shows as the link text)
+       desc   : one-line description shown under the title
+       date   : date string, e.g. "march 10, 2026"
+       image  : path to thumbnail, e.g. "images/foo.jpg"
+                leave as "" to show the grey placeholder
+       link   : path to the post file, e.g. "posts/my-post.html"
+
+     Newest post should go at the TOP of the array.
+     ================================================== -->
+<script type="text/javascript">
+var POSTS = [
+  {
+    title : "on the slow internet and other lost things",
+    desc  : "what it felt like to wait for a page to load, and why speed isn't the same as arrival.",
+    date  : "march 10, 2026",
+    image : "",
+    link  : "posts/slow-internet.html"
+  },
+  {
+    title : "things i have learned from making things nobody asked for",
+    desc  : "on creative work that lives in the gap between not needing an audience and wanting one anyway.",
+    date  : "march 6, 2026",
+    image : "",
+    link  : "posts/making-things.html"
+  },
+  {
+    title : "february, assessed",
+    desc  : "a month that happened sideways. soup was reliable. some other things were not.",
+    date  : "march 1, 2026",
+    image : "",
+    link  : "posts/february-assessed.html"
+  },
+  {
+    title : "hello world (site launch)",
+    desc  : "the blog exists now. lowering the bar on purpose. hi past-me if you're reading this.",
+    date  : "february 18, 2026",
+    image : "",
+    link  : "posts/hello-world.html"
+  }
+];
+</script>
+
+<!-- ==================== BANNER ==================== -->
+<div id="banner">
+  <h1>rhubarb dogma</h1>
+</div>
+
+
+<!-- ==================== NAVBAR ==================== -->
+<div id="navbar">
+  <a href="index.html">[ home ]</a>
+  <a href="about.html">[ about ]</a>
+  <a href="archives.html">[ archives ]</a>
+  <a href="links.html">[ links ]</a>
+  <a href="guestbook.html">[ guestbook ]</a>
+  <a href="../index.html">[ main site ]</a>
+</div>
+
+<!-- ==================== OUTER LAYOUT ==================== -->
+<div id="outer">
+  <table width="100%" cellpadding="0" cellspacing="10" border="0">
+    <tr valign="top">
+
+      <!-- ====== MAIN CONTENT ====== -->
+      <td id="main-content">
+
+        <h2 class="section-header">&#187; recent entries</h2>
+
+        <table id="post-index" cellpadding="10" cellspacing="0" border="1" bordercolor="#777777" align="center">
+        </table>
+
+        <script type="text/javascript">
+          var table = document.getElementById("post-index");
+          for (var i = 0; i < POSTS.length; i++) {
+            var p = POSTS[i];
+            var thumb = p.image
+              ? '<img src="' + p.image + '" alt="">'
+              : '<span class="thumb-placeholder">no img</span>';
+            var row = table.insertRow(-1);
+            row.innerHTML =
+              '<td class="index-thumb">' + thumb + '</td>' +
+              '<td class="index-info">' +
+                '<a href="' + p.link + '">' + p.title + '</a>' +
+                '<div class="index-desc">' + p.desc + '</div>' +
+                '<div class="index-date">' + p.date + '</div>' +
+              '</td>';
+          }
+        </script>
+
+      </td>
+    </tr>
+  </table>
+
+
+</div><!-- end #outer -->
+
+</body>
+</html>
