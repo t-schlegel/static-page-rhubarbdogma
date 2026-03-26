@@ -268,24 +268,22 @@
     /* ---- SIDEBAR MINI-POST TABLE ---- */
     .mini-post-table {
       width: 100%;
-      border-collapse: collapse;
-      border: 4px solid #777777;
-      background-color: #ffffff;
+      border-collapse: separate;
+      border-spacing: 2px;
+      border: 3px outset #cccccc;
+      background-color: #88ffff;
       color: #111111;
     }
 
     .mini-post-table td {
       padding: 8px 10px;
-      border-bottom: 1px solid #bbbbbb;
+      border: 2px inset #cccccc;
       vertical-align: top;
-    }
-
-    .mini-post-table tr:last-child td {
-      border-bottom: none;
+      background-color: #88ffff;
     }
 
     .mini-post-table tr:hover td {
-      background-color: #f0f0f0;
+      background-color: #66dddd;
     }
 
     .mini-post-img {
@@ -316,24 +314,30 @@
     /* ---- POST INDEX TABLE ---- */
     #post-index {
       width: 100%;
-      border-collapse: collapse;
-      border: 4px solid #777777;
-      background-color: #ffffff;
+      border-collapse: separate;
+      border-spacing: 2px;
+      border: 3px outset #cccccc;
+      background-color: #88ffff;
       color: #111111;
     }
 
     #post-index td {
       padding: 10px 12px;
-      border-bottom: 1px solid #bbbbbb;
+      border: 2px inset #cccccc;
       vertical-align: middle;
-    }
-
-    #post-index tr:last-child td {
-      border-bottom: none;
+      background-color: #88ffff;
     }
 
     #post-index tr:hover td {
-      background-color: #f0f0f0;
+      background-color: #66dddd;
+    }
+
+    #post-index .table-header {
+      background-color: #ff9999;
+      font-weight: bold;
+      text-align: center;
+      padding: 4px 12px;
+      border: 2px inset #cccccc;
     }
 
     .index-thumb {
@@ -419,9 +423,10 @@
       <!-- ====== MAIN CONTENT ====== -->
       <td id="main-content">
 
-        <h2 class="section-header">&#187; recent entries</h2>
-
-        <table id="post-index" cellpadding="10" cellspacing="0" border="1" bordercolor="#777777" align="center">
+        <table id="post-index" cellpadding="10" cellspacing="2" align="center">
+          <tr>
+            <td colspan="2" class="table-header">Recent Posts</td>
+          </tr>
         </table>
 
         <script type="text/javascript">
@@ -456,7 +461,7 @@
 
         <h2 class="section-header">&#187; notes</h2>
 
-        <table class="mini-post-table" cellpadding="0" cellspacing="0" border="1" bordercolor="#777777">
+        <table class="mini-post-table" cellpadding="0" cellspacing="2">
           <tr>
             <td>
               <img class="mini-post-img" src="" alt="">
