@@ -403,6 +403,7 @@
 
 <!-- POST REGISTRY lives in posts.js — edit that file to add new posts -->
 <script type="text/javascript" src="posts.js"></script>
+<script type="text/javascript" src="sidebar-posts.js"></script>
 
 <!-- ==================== OUTER LAYOUT ==================== -->
 <div id="outer">
@@ -461,28 +462,32 @@
 
         <h2 class="section-header">&#187; notes</h2>
 
-        <table class="mini-post-table" cellpadding="0" cellspacing="2">
-          <tr>
-            <td>
-              <img class="mini-post-img" src="" alt="">
-              <p class="mini-post-title">mini post title</p>
-              <p class="mini-post-body">A short note or thought goes here. Keep it brief.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <p class="mini-post-title">mini post title</p>
-              <p class="mini-post-body">A note without an image — just text is fine too.</p>
-            </td>
-          </tr>
-          <tr>
-            <td>
-              <img class="mini-post-img" src="" alt="">
-              <p class="mini-post-title">mini post title</p>
-              <p class="mini-post-body">Another short note with an image above it.</p>
-            </td>
-          </tr>
+        <table id="sidebar-post-index" class="mini-post-table" cellpadding="0" cellspacing="2">
         </table>
+
+        <script type="text/javascript">
+          var sidebarTable = document.getElementById("sidebar-post-index");
+          for (var j = 0; j < SIDEBAR_POSTS.length; j++) {
+            var note = SIDEBAR_POSTS[j];
+            var row = sidebarTable.insertRow(-1);
+            row.innerHTML =
+              '<td>' +
+                (note.image
+                  ? '<a href="' + note.link + '"><img class="mini-post-img" src="' + note.image + '" alt="' + (note.imageAlt || '') + '"></a>'
+                  : '') +
+                '<p class="mini-post-title"><a href="' + note.link + '">' + note.title + '</a></p>' +
+                '<p class="mini-post-body">' + note.desc + '</p>' +
+              '</td>';
+          }
+          if (!SIDEBAR_POSTS.length) {
+            var emptyRow = sidebarTable.insertRow(-1);
+            emptyRow.innerHTML =
+              '<td>' +
+                '<p class="mini-post-title">no notes yet</p>' +
+                '<p class="mini-post-body">Add entries in sidebar-posts.js to show sidebar posts here.</p>' +
+              '</td>';
+          }
+        </script>
 
       </td>
 

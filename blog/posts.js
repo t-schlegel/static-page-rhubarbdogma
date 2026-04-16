@@ -10,6 +10,9 @@
 //            leave as "" to show the grey placeholder
 //   link   : path to the post file, e.g. "posts/my-post.html"
 //
+// Start new posts from:
+//   blog/post-templates/post-template.html
+//
 // Newest post should go at the TOP of the array.
 // The homepage shows the 10 most recent.
 // Older posts appear automatically on the Archives page.
@@ -17,27 +20,21 @@
 
 var POSTS = [
   {
-    title : "on the slow internet and other lost things",
-    desc  : "what it felt like to wait for a page to load, and why speed isn't the same as arrival.",
+    title : "post 1",
+    desc  : "desc 1",
     image : "",
-    link  : "posts/slow-internet.html"
+    link  : ""
   },
   {
-    title : "things i have learned from making things nobody asked for",
-    desc  : "on creative work that lives in the gap between not needing an audience and wanting one anyway.",
+    title : "post 2",
+    desc  : "desc 2",
     image : "",
-    link  : "posts/making-things.html"
+    link  : ""
   },
   {
-    title : "february, assessed",
-    desc  : "a month that happened sideways. soup was reliable. some other things were not.",
+    title : "post 3",
+    desc  : "desc 3",
     image : "",
-    link  : "posts/february-assessed.html"
-  },
-  {
-    title : "hello world (site launch)",
-    desc  : "the blog exists now. lowering the bar on purpose. hi past-me if you're reading this.",
-    image : "",
-    link  : "posts/hello-world.html"
+    link  : ""
   }
 ];
