@@ -91,11 +91,12 @@
       border-bottom: 1px solid #888888;
     }
 
+    /* Set per-image size with style="--post-image-width: 420px;" */
     .post-image {
       display: block;
+      width: var(--post-image-width, auto);
       max-width: 100%;
       height: auto;
-      border: 1px solid #888888;
       margin: 0 0 16px 0;
     }
 
@@ -154,7 +155,7 @@
         <div class="post-shell">
           <div class="post-title">SIDEBAR POST TITLE GOES HERE</div>
 
-          <img class="post-image" src="../images/your-image.jpg" alt="describe the image here">
+          <img class="post-image" src="../images/your-image.jpg" alt="describe the image here" style="--post-image-width: auto;">
 
           <div class="post-body">
             <p>
